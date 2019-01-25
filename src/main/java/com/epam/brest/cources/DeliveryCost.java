@@ -35,12 +35,12 @@ public class DeliveryCost {
 
         FileReader fileReader = new CSVFileReader();
         Map<Integer, BigDecimal> kgs = fileReader.readData("price_kg.csv");
-        if ((kgs == null) || (kgs.isEmpty())) {
+        if (kgs == null || kgs.isEmpty()) {
             throw new FileNotFoundException("File with prices per kg not found.");
         }
 
         Map<Integer, BigDecimal> kms = fileReader.readData("price_km.csv");
-        if ((kms == null) || (kms.isEmpty())) {
+        if (kms == null || kms.isEmpty()) {
             throw new FileNotFoundException("File with prices per km not found.");
         }
 

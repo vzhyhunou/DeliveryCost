@@ -9,6 +9,8 @@ import com.epam.brest.cources.menu.EnteredValue.Types;
 import com.epam.brest.cources.menu.ExitValue;
 import com.epam.brest.cources.menu.IncorrectValue;
 import com.epam.brest.cources.files.CSVFileReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,6 +29,8 @@ public class DeliveryCost {
     private static final BigDecimal[] ENTERED_VALUES = new BigDecimal[2];
 
     private static final String QUIT_SYMBOL = "q";
+
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws IOException {
 
@@ -67,8 +71,8 @@ public class DeliveryCost {
             dataItem.setPricePerKm(deliveryCost.selectPriceValue(kms, dataItem.getDistance()));
 
             BigDecimal calcResult = new CalculatorImpl().calc(dataItem);
-            System.out.println(dataItem);
-            System.out.format("Delivery cost = %.2f$%n", calcResult);
+            LOGGER.info("Data item: {}", dataItem);
+            LOGGER.info("Delivery cost: {} {}", dataItem, calcResult);
         }
 
         System.out.println("Bye!");

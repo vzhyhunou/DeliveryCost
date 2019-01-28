@@ -12,6 +12,7 @@
         <java.version>1.8</java.version>
         <junit.version>5.2.0</junit.version>
         <log4j2.version>2.11.1</log4j2.version>
+        <mockito.vertion>2.23.4</mockito.vertion>
     </properties>
 
     <dependencies>
@@ -42,6 +43,10 @@
         <dependency>
             <groupId>org.opentest4j</groupId>
             <artifactId>opentest4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
         </dependency>
     </dependencies>
 
@@ -84,6 +89,12 @@
                 <groupId>org.opentest4j</groupId>
                 <artifactId>opentest4j</artifactId>
                 <version>1.1.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.vertion}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

@@ -9,14 +9,16 @@ import com.epam.brest.cources.menu.EnteredValue.Types;
 import com.epam.brest.cources.menu.ExitValue;
 import com.epam.brest.cources.menu.IncorrectValue;
 import com.epam.brest.cources.files.CSVFileReader;
+import com.epam.brest.cources.selector.PriceSelector;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.SortedSet;
-import java.util.TreeSet;
+
 
 public class DeliveryCost {
 
@@ -27,6 +29,8 @@ public class DeliveryCost {
     private static final BigDecimal[] ENTERED_VALUES = new BigDecimal[2];
 
     private static final String QUIT_SYMBOL = "q";
+
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws IOException {
 
@@ -58,36 +62,25 @@ public class DeliveryCost {
             }
         }
 
+        PriceSelector selector = new PriceSelector();
+
         //Calculate result
         if (ew != null && ew.getType() != Types.EXIT) {
             DataItem dataItem = new DataItem();
             dataItem.setWeight(ENTERED_VALUES[0]);
             dataItem.setDistance(ENTERED_VALUES[1]);
-            dataItem.setPricePerKg(deliveryCost.selectPriceValue(kgs, dataItem.getWeight()));
-            dataItem.setPricePerKm(deliveryCost.selectPriceValue(kms, dataItem.getDistance()));
+            dataItem.setPricePerKg(selector.selectPriceValue(kgs, dataItem.getWeight()));
+            dataItem.setPricePerKm(selector.selectPriceValue(kms, dataItem.getDistance()));
 
             BigDecimal calcResult = new CalculatorImpl().calc(dataItem);
-            System.out.println(dataItem);
-            System.out.format("Delivery cost = %.2f$%n", calcResult);
+            LOGGER.info("Data item: {}", dataItem);
+            LOGGER.info("Delivery cost: {} {}", dataItem, calcResult);
         }
 
         System.out.println("Bye!");
     }
 
-    private BigDecimal selectPriceValue(Map<Integer, BigDecimal> valuesMap, BigDecimal targetValue) {
-        SortedSet<Integer> sortedKeys = new TreeSet<>(valuesMap.keySet());
-        Integer foundedKey = sortedKeys.first();
-        for(Integer key : sortedKeys) {
-            if (foundedKey >= targetValue.doubleValue()) {
-                break;
-            }
-            foundedKey = key;
-        }
 
-        BigDecimal foundedValue = valuesMap.get(foundedKey);
-        System.out.format("Selected interval for value %.2f is %d -> %.2f$%n", targetValue, foundedKey, foundedValue);
-        return foundedValue;
-    }
 
     private EnteredValue receiveValueFromConsole(String message, Scanner scanner) {
         EnteredValue result = new IncorrectValue();

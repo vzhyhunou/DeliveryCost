@@ -1,0 +1,18 @@
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="File" fileName="logs/app.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <appender-ref ref="Console"/>
+        </Root>
+        <Logger name="com.epam" level="DEBUG">
+            <appender-ref ref="File"/>
+        </Logger>
+    </Loggers>
+</Configuration>

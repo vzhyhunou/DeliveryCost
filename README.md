@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Brest-Java-Course-2019/DeliveryCost.svg?branch=master)](https://travis-ci.org/Brest-Java-Course-2019/DeliveryCost)
+
 # Project Title
 
 Test Java project to study technologies such as git, maven, continuous integration, continuous delivery and others.

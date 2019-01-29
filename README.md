@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Brest-Java-Course-2019/DeliveryCost.svg?branch=master)](https://travis-ci.org/Brest-Java-Course-2019/DeliveryCost)
+[![Coverage Status](https://coveralls.io/repos/github/Brest-Java-Course-2019/DeliveryCost/badge.svg?branch=master)](https://coveralls.io/github/Brest-Java-Course-2019/DeliveryCost?branch=master)
 
 # Project Title
 

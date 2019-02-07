@@ -24,9 +24,9 @@ public class SerializationTest {
 
     @Test
     public void test() throws Exception {
-        byte[] data = writer.marshal(create(), create());
-        LOGGER.info("Data: {}", new String(data));
-        Object[] result = writer.unmarshal(data);
+        byte[] bytes = writer.marshal(create(), create());
+        LOGGER.info("Data: {}", new String(bytes));
+        Object[] result = writer.unmarshal(bytes);
         LOGGER.info("Result: {}", Arrays.toString(result));
     }
 
@@ -41,11 +41,14 @@ public class SerializationTest {
     }
 
     private DataItem create() {
+
         DataItem dataItem = new DataItem();
-        dataItem.setWeight(new BigDecimal("21"));
-        dataItem.setDistance(new BigDecimal("22"));
-        dataItem.setPricePerKg(new BigDecimal("23"));
-        dataItem.setPricePerKm(new BigDecimal("24"));
+        dataItem.setWeight(new BigDecimal("1"));
+        dataItem.setDistance(new BigDecimal("2"));
+        dataItem.setPricePerKg(new BigDecimal("3"));
+        dataItem.setPricePerKm(new BigDecimal("4"));
+
         return dataItem;
     }
+
 }

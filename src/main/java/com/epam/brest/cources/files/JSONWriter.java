@@ -19,7 +19,6 @@ public class JSONWriter implements DataWriter {
 
     @Override
     public byte[] marshal(Object... objects) throws Exception {
-
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
         for (Object obj : objects) {
@@ -31,18 +30,15 @@ public class JSONWriter implements DataWriter {
 
     @Override
     public Object[] unmarshal(byte[] bytes) throws Exception {
-
         List<Object> list = new ArrayList<>();
-
         InputStream in = new ByteArrayInputStream(bytes);
         try {
             while (true) {
                 list.add(MAPPER.readValue(in, DataItem.class));
             }
         } catch (Exception e) {
-            LOGGER.debug(e);
+            LOGGER.info(e);
         }
-
         return list.toArray();
     }
 }

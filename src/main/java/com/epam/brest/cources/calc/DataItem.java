@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property="type")
+@JsonTypeInfo(property = "type", use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value=DataItem.class, name="item")
+        @JsonSubTypes.Type(value = DataItem.class, name="item")
 })
 public class DataItem implements Serializable {
 
@@ -19,7 +19,7 @@ public class DataItem implements Serializable {
     @JsonIgnore
     BigDecimal distance;
 
-    @JsonProperty("priceKg")
+    @JsonProperty("price2")
     BigDecimal pricePerKg;
 
     BigDecimal pricePerKm;

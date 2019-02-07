@@ -1,13 +1,25 @@
 package com.epam.brest.cources.calc;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class DataItem {
+@JsonTypeInfo(property = "type", use = JsonTypeInfo.Id.NAME)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = DataItem.class, name="item")
+})
+public class DataItem implements Serializable {
 
-    BigDecimal weight;
+    transient BigDecimal weight;
 
+    @JsonIgnore
     BigDecimal distance;
 
+    @JsonProperty("price2")
     BigDecimal pricePerKg;
 
     BigDecimal pricePerKm;

@@ -1,4 +1,4 @@
-package com.epam.brest.cources.calc;
+package com.epam.brest.courses.calc;
 
 import java.math.BigDecimal;
 
@@ -11,6 +11,6 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public BigDecimal calc(DataItem dataItem) {
-        return dataItem.getWeight().multiply(dataItem.getPricePerKg()).add(dataItem.getDistance().multiply(dataItem.getPricePerKm()));
+        return calc(dataItem.getWeight(), dataItem.getDistance(), dataItem.getPricePerKg(), dataItem.getPricePerKm());
     }
 }

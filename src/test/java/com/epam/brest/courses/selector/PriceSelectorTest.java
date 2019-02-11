@@ -1,4 +1,4 @@
-package com.epam.brest.cources.selector;
+package com.epam.brest.courses.selector;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;

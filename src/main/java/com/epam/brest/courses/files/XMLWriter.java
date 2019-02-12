@@ -1,4 +1,4 @@
-package com.epam.brest.cources.files;
+package com.epam.brest.courses.files;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

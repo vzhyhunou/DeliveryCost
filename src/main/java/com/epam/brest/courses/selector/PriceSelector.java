@@ -1,4 +1,4 @@
-package com.epam.brest.cources.selector;
+package com.epam.brest.courses.selector;
 
 import java.math.BigDecimal;
 import java.util.Map;

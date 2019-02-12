@@ -1,4 +1,4 @@
-package com.epam.brest.cources.menu;
+package com.epam.brest.courses.menu;
 
 public class IncorrectValue implements EnteredValue {
 

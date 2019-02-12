@@ -1,4 +1,4 @@
-package com.epam.brest.cources.files;
+package com.epam.brest.courses.files;
 
 import java.io.IOException;
 import java.math.BigDecimal;

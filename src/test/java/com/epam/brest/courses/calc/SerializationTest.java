@@ -1,9 +1,9 @@
-package com.epam.brest.cources.calc;
+package com.epam.brest.courses.calc;
 
-import com.epam.brest.cources.files.DataWriter;
-import com.epam.brest.cources.files.JSONWriter;
-import com.epam.brest.cources.files.ObjectWriter;
-import com.epam.brest.cources.files.XMLWriter;
+import com.epam.brest.courses.files.DataWriter;
+import com.epam.brest.courses.files.JSONWriter;
+import com.epam.brest.courses.files.ObjectWriter;
+import com.epam.brest.courses.files.XMLWriter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

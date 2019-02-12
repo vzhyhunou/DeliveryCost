@@ -1,4 +1,4 @@
-package com.epam.brest.cources.files;
+package com.epam.brest.courses.files;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -14,12 +14,13 @@ public class CSVFileReader implements FileReader {
     @Override
     public Map<Integer, BigDecimal> readData(String filePath) throws IOException {
         String paths = Objects.requireNonNull(CSVFileReader.class.getClassLoader().getResource(filePath)).getPath();
-        Stream<String> lines = Files.lines(Paths.get(paths));
-        Map<Integer, BigDecimal> resultMap =
-                lines.map(line -> line.split(","))
-                        .collect(Collectors.toMap(line -> Integer.parseInt(line[0]), line -> new BigDecimal(line[1])));
-        lines.close();
+
+        Map<Integer, BigDecimal> resultMap;
+        try (Stream<String> lines = Files.lines(Paths.get(paths))) {
+            resultMap =
+                    lines.map(line -> line.split(","))
+                            .collect(Collectors.toMap(line -> Integer.parseInt(line[0]), line -> new BigDecimal(line[1])));
+        }
         return resultMap;
     }
-
 }

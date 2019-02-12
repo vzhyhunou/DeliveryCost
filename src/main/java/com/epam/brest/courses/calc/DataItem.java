@@ -1,4 +1,4 @@
-package com.epam.brest.cources.calc;
+package com.epam.brest.courses.calc;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
